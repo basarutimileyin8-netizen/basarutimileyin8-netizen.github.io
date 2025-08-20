@@ -18,6 +18,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -189,6 +190,76 @@
             border-radius: 10px;
         }
         
+        /* Process Section */
+        .process {
+            background: white;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        /* Results Section */
+        .results {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .results h2 {
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        
         /* Testimonials */
         .testimonials {
             background: white;
@@ -216,6 +287,91 @@
         .testimonial-author {
             font-weight: 600;
             color: #3498db;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            background: #f1f8ff;
+        }
+        
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+        }
+        
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .pricing-features {
+            padding: 30px;
+        }
+        
+        .pricing-features ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: white;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: #f8f9fa;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 200px;
         }
         
         /* Contact Section */
@@ -298,6 +454,10 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
+            .step {
+                flex: 0 0 100%;
+            }
         }
     </style>
 </head>
@@ -309,8 +469,11 @@
                 <div class="logo">Basaru <span>SEO Expert</span></div>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#results">Results</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -342,7 +505,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.pexels.com/photos/5698417/pexels-photo-5698417.jpeg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3>Keyword Research & Strategy</h3>
                         <p>We find the most profitable keywords for your niche and develop a content strategy to target them effectively.</p>
@@ -350,10 +513,34 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3>On-Page Optimization</h3>
                         <p>We optimize your product pages, collection pages, and content to maximize their visibility in search results.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Content Strategy</h3>
+                        <p>We create a content plan that attracts, engages, and converts your target audience while improving SEO.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Link Building</h3>
+                        <p>We develop a strategic approach to acquire high-quality backlinks that boost your domain authority.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1563014959-7aaa83350992?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Ongoing SEO Maintenance</h3>
+                        <p>We provide continuous optimization, monitoring, and reporting to ensure long-term SEO success.</p>
                     </div>
                 </div>
             </div>
@@ -372,6 +559,70 @@
                     <a href="#contact" class="btn">Work With Us</a>
                 </div>
                 <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="text-center">Our 4-Step SEO Process</h2>
+            <p class="text-center">A structured approach to maximizing your Shopify store's search visibility</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Analysis</h3>
+                    <p>We conduct a comprehensive audit of your current SEO status and identify opportunities for improvement.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy Development</h3>
+                    <p>We create a customized SEO strategy tailored to your specific business goals and target audience.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>Our team executes the strategy, optimizing your site structure, content, and technical elements.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Monitoring & Optimization</h3>
+                    <p>We continuously track performance, make data-driven adjustments, and provide detailed reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results">
+        <div class="container">
+            <h2 class="text-center">Proven Results for Shopify Stores</h2>
+            <p class="text-center">We deliver measurable improvements that impact your bottom line</p>
+            
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">187%</div>
+                    <p>Average Increase in Organic Traffic</p>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">124%</div>
+                    <p>Average Increase in Organic Revenue</p>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">315%</div>
+                    <p>Average ROI on SEO Investment</p>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">96%</div>
+                    <p>Client Retention Rate</p>
+                </div>
             </div>
         </div>
     </section>
@@ -401,6 +652,130 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="text-center">Transparent Pricing Plans</h2>
+            <p class="text-center">Choose the package that fits your needs and budget</p>
+            
+            <div class="pricing-options">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="pricing-price">$799<span>/mo</span></div>
+                        <p>For new stores</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Technical SEO Audit</li>
+                            <li>Keyword Research (50 keywords)</li>
+                            <li>On-Page Optimization (20 pages)</li>
+                            <li>Monthly Performance Report</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Started</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="pricing-price">$1499<span>/mo</span></div>
+                        <p>For growing stores</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Everything in Starter</li>
+                            <li>Advanced Keyword Research (100 keywords)</li>
+                            <li>Content Strategy & Creation</li>
+                            <li>Technical SEO Implementation</li>
+                            <li>Ongoing Optimization</li>
+                            <li>Weekly Performance Report</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Started</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">$2499<span>/mo</span></div>
+                        <p>For established stores</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Everything in Professional</li>
+                            <li>Comprehensive Keyword Research (200+ keywords)</li>
+                            <li>Advanced Technical SEO</li>
+                            <li>Link Building Campaign</li>
+                            <li>Competitor Analysis</li>
+                            <li>Custom Reporting Dashboard</li>
+                            <li>Dedicated Account Manager</li>
+                            <li>24/7 Support</li>
+                        </ul>
+                        <a href="#contact" class="btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <p class="text-center">Find answers to common questions about our Shopify SEO services</p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does it take to see results from SEO? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically, you'll start seeing initial improvements within 2-3 months, but significant results usually appear between 4-6 months. SEO is a long-term strategy that builds momentum over time.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you work with Shopify stores in any niche? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we have experience working with Shopify stores across various industries including fashion, electronics, beauty, home goods, and more. Our strategies are tailored to your specific niche and target audience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Will I need to provide access to my Shopify store? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we'll need staff access to your Shopify admin to implement technical optimizations. You can revoke access at any time, and we follow strict security protocols to ensure your store's safety.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do you measure SEO success? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We track key performance indicators including organic traffic, keyword rankings, conversion rates, and revenue from organic search. You'll receive detailed monthly reports showing progress toward your goals.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer custom SEO plans? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. While our standard packages work for most stores, we can create a custom plan tailored to your specific needs, goals, and budget. Contact us to discuss custom options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -414,6 +789,14 @@
                     <p><i class="fas fa-phone"></i> Phone: (555) 123-4567</p>
                     <p><i class="fas fa-map-marker-alt"></i> Address: 123 Ecommerce Way, Digital City</p>
                     <p><i class="fas fa-clock"></i> Hours: Mon-Fri 9am-5pm EST</p>
+                    
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
                 
                 <div class="contact-form">
@@ -448,6 +831,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="logo">Basaru <span>SEO Expert</span></div>
+            <p>Specialized SEO services for Shopify store owners</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -457,5 +842,24 @@
             <p>&copy; 2023 Basaru SEO Expert. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('active');
+                
+                const icon = question.querySelector('i');
+                if (answer.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
